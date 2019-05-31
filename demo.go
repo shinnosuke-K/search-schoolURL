@@ -26,7 +26,7 @@ func customSearchMain() {
 
 	for i, result := range resp.Items {
 		fmt.Printf("#%d: %s\n", i+1, result.Title)
-		fmt.Printf("\t%s\n", result.Snippet)
+		fmt.Printf("\t%s\n", result.Link)
 	}
 }
 
