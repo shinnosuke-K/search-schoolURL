@@ -19,7 +19,6 @@ func customSearchMain() {
 	}
 
 	resp, err := svc.Cse.List(env.Query).Cx(env.Cx).Num(5).Do()
-	//resp, err := svc.Cse.List(env.Query).Cx(env.Cx).Num(5).Do()
 	if err != nil {
 		log.Fatal(err)
 	}
