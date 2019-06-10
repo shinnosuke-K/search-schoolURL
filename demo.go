@@ -25,7 +25,7 @@ func customSearchMain() {
 	}
 
 	for i, result := range resp.Items {
-		if strings.Contains(result.Link, "ed.jp/") {
+		if strings.Contains(result.Link, "ed.jp/") || strings.Contains(result.Link, "ac.jp/") {
 			fmt.Printf("#%d: %s\n", i+1, result.Title)
 			fmt.Printf("\t%s\n", result.Link)
 			break
