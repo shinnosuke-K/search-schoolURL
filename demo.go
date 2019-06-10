@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"search-schoolURL/env"
+	"strings"
 
 	"google.golang.org/api/customsearch/v1"
 	"google.golang.org/api/googleapi/transport"
@@ -24,8 +25,11 @@ func customSearchMain() {
 	}
 
 	for i, result := range resp.Items {
-		fmt.Printf("#%d: %s\n", i+1, result.Title)
-		fmt.Printf("\t%s\n", result.Link)
+		if strings.Contains(result.Link, "ed.jp/") {
+			fmt.Printf("#%d: %s\n", i+1, result.Title)
+			fmt.Printf("\t%s\n", result.Link)
+			break
+		}
 	}
 }
 
