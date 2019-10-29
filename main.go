@@ -23,6 +23,8 @@ func createCSVfile(fileName string) {
 }
 
 func searchURL(query string) string {
+
+	// for google api 'Custom Search api'
 	client := &http.Client{Transport: &transport.APIKey{Key: env.ApiKey}}
 
 	svc, err := customsearch.New(client)
@@ -41,6 +43,7 @@ func searchURL(query string) string {
 		}
 	}
 	return ""
+	// end
 }
 
 func writeCSV(fileName, deviValue, schoolName, course, link string) {
@@ -63,7 +66,7 @@ func writeCSV(fileName, deviValue, schoolName, course, link string) {
 	writer.Flush()
 }
 
-func Extraction(reader *csv.Reader, fileName string) {
+func extraction(reader *csv.Reader, fileName string) {
 	beforeName := ""
 	link := ""
 	for {
@@ -103,7 +106,7 @@ func main() {
 
 			reader := csv.NewReader(csvFile)
 
-			Extraction(reader, fileName)
+			extraction(reader, fileName)
 
 			csvFile.Close()
 		}
